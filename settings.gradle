@@ -1,0 +1,2 @@
+rootProject.name='CS473 Mobile Device Programming'
+include ':app'
