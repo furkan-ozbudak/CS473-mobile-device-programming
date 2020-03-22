@@ -31,70 +31,10 @@ class QuizFragment : Fragment() {
         dbcon = SQLController(context!!)
         dbcon.open()
 
-      /*   Questions are inserted to database only once.
-        dbcon.insertData(
-            "1 - Which one is not an android layout?",
-            "a) Relative Layout", "b) Linear Layout", "c) Exponential Layout", "c"
-        )
-        dbcon.insertData(
-            "2 - Android is developed by",
-            "a) Google", "b) Yahoo", "c) Microsoft", "a"
-        )
-        dbcon.insertData(
-            "3 - Android is based on which Kernel?",
-            "a) Windows", "b) Linux", "c) Mac", "b"
-        )
-        dbcon.insertData(
-            "4 - Which media format is not supported in Android?",
-            "a) MP4", "b) MPEG", "c) AVI", "c"
-        )
-        dbcon.insertData(
-            "5 - In which directory XML Layout files are stored?",
-            "a) /res/layout", "b) /assets", "c) /src", "a"
-        )
-        dbcon.insertData(
-            "6 - View Pages used for?",
-            "a) Swiping Activities", "b) Swiping Fragments", "c) Paging list items", "b"
-        )
-        dbcon.insertData(
-            "7 - Which is not an android programming language?",
-            "a) kotlin", "b) java", "c) php", "c"
-        )
-        dbcon.insertData(
-            "8 - Which one is not a dialog?",
-            "a) Toast Dialog", "b) Datepicker Dialog", "c) Alert Dialog", "a"
-        )
-        dbcon.insertData(
-            "9 - Fragments could be considered as?",
-            "a) SubService", "b) SubActivity", "c) SubClass", "b"
-        )
-        dbcon.insertData(
-            "10 - Runtime permissions started with which android version codename?",
-            "a) Cupcake", "b) Pie", "c) Marshmallow", "c"
-        )
-        dbcon.insertData(
-            "11 - Which folder to store images?",
-            "a) drawable", "b) layout", "c) values", "a"
-        )
-        dbcon.insertData(
-            "12 - How to show large list efficiently?",
-            "a) ListView", "b) RecyclerView", "c) ImageView", "b"
-        )
-        dbcon.insertData(
-            "13 - Which one is not an intent category?",
-            "a) Implicit", "b) Explicit", "c) Internal", "c"
-        )
-        dbcon.insertData(
-            "14 - Which one is not permission category?",
-            "a) Crucial", "b) Normal", "c) Dangerous", "a"
-        )
-        dbcon.insertData(
-            "15 - Which one is not an Android component?",
-            "a) Activity", "b) Fragment", "c) Service", "b"
-        ) */
-
         val cursor = dbcon.readData()
-
+        if(cursor.count < 15) {
+            insertQuestions()
+        }
 
         cursor.moveToFirst()
         while (!(cursor.isAfterLast())) {
@@ -188,5 +128,68 @@ class QuizFragment : Fragment() {
             activity!!.supportFragmentManager.beginTransaction()
                 .replace(R.id.mainLayout, CourseFragment()).addToBackStack(null).commit()
         }
+    }
+
+    fun insertQuestions() {
+        dbcon.insertData(
+            "1 - Which one is not an android layout?",
+            "a) Relative Layout", "b) Linear Layout", "c) Exponential Layout", "c"
+        )
+        dbcon.insertData(
+            "2 - Android is developed by",
+            "a) Google", "b) Yahoo", "c) Microsoft", "a"
+        )
+        dbcon.insertData(
+            "3 - Android is based on which Kernel?",
+            "a) Windows", "b) Linux", "c) Mac", "b"
+        )
+        dbcon.insertData(
+            "4 - Which media format is not supported in Android?",
+            "a) MP4", "b) MPEG", "c) AVI", "c"
+        )
+        dbcon.insertData(
+            "5 - In which directory XML Layout files are stored?",
+            "a) /res/layout", "b) /assets", "c) /src", "a"
+        )
+        dbcon.insertData(
+            "6 - View Pages used for?",
+            "a) Swiping Activities", "b) Swiping Fragments", "c) Paging list items", "b"
+        )
+        dbcon.insertData(
+            "7 - Which is not an android programming language?",
+            "a) kotlin", "b) java", "c) php", "c"
+        )
+        dbcon.insertData(
+            "8 - Which one is not a dialog?",
+            "a) Toast Dialog", "b) Datepicker Dialog", "c) Alert Dialog", "a"
+        )
+        dbcon.insertData(
+            "9 - Fragments could be considered as?",
+            "a) SubService", "b) SubActivity", "c) SubClass", "b"
+        )
+        dbcon.insertData(
+            "10 - Runtime permissions started with which android version codename?",
+            "a) Cupcake", "b) Pie", "c) Marshmallow", "c"
+        )
+        dbcon.insertData(
+            "11 - Which folder to store images?",
+            "a) drawable", "b) layout", "c) values", "a"
+        )
+        dbcon.insertData(
+            "12 - How to show large list efficiently?",
+            "a) ListView", "b) RecyclerView", "c) ImageView", "b"
+        )
+        dbcon.insertData(
+            "13 - Which one is not an intent category?",
+            "a) Implicit", "b) Explicit", "c) Internal", "c"
+        )
+        dbcon.insertData(
+            "14 - Which one is not permission category?",
+            "a) Crucial", "b) Normal", "c) Dangerous", "a"
+        )
+        dbcon.insertData(
+            "15 - Which one is not an Android component?",
+            "a) Activity", "b) Fragment", "c) Service", "b"
+        )
     }
 }
